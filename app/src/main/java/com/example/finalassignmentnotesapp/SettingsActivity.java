@@ -1,5 +1,6 @@
 package com.example.finalassignmentnotesapp;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,18 +19,19 @@ public class SettingsActivity extends AppCompatActivity {
         Switch switchDailyAffirmation = findViewById(R.id.switchDailyAffirmation);
         Button btnSaveSettings = findViewById(R.id.btnSaveSettings);
 
-        // TODO: Load saved settings
+        // Load saved settings
+        SharedPreferences prefs = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        switchDarkMode.setChecked(prefs.getBoolean("darkMode", false));
+        switchDailyAffirmation.setChecked(prefs.getBoolean("dailyAffirmation", false));
 
-        btnSaveSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean darkMode = switchDarkMode.isChecked();
-                boolean dailyAffirmation = switchDailyAffirmation.isChecked();
+        btnSaveSettings.setOnClickListener(v -> {
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("darkMode", switchDarkMode.isChecked());
+            editor.putBoolean("dailyAffirmation", switchDailyAffirmation.isChecked());
+            editor.apply();
 
-                // TODO: Save settings
-                Toast.makeText(SettingsActivity.this, "Settings saved", Toast.LENGTH_SHORT).show();
-                finish();
-            }
+            Toast.makeText(SettingsActivity.this, "Settings saved", Toast.LENGTH_SHORT).show();
+            finish();
         });
     }
 }

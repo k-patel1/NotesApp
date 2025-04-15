@@ -32,11 +32,18 @@ android {
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+
+    // Volley for network requests (affirmations API)
+    implementation("com.android.volley:volley:1.2.1")
+
+    // Room components for database (if you decide to add it later)
+    // implementation("androidx.room:room-runtime:2.5.2")
+    // annotationProcessor("androidx.room:room-compiler:2.5.2")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
