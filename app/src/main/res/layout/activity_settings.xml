@@ -15,17 +15,10 @@
         android:paddingBottom="16dp"/>
 
     <Switch
-        android:id="@+id/switchDarkMode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dark Mode"/>
-
-    <Switch
         android:id="@+id/switchDailyAffirmation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enable Daily Affirmation"
-        android:layout_marginTop="16dp"/>
+        android:text="Enable Daily Affirmation"/>
 
     <Button
         android:id="@+id/btnSaveSettings"

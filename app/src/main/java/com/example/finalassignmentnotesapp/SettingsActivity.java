@@ -15,23 +15,23 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        Switch switchDarkMode = findViewById(R.id.switchDarkMode);
         Switch switchDailyAffirmation = findViewById(R.id.switchDailyAffirmation);
         Button btnSaveSettings = findViewById(R.id.btnSaveSettings);
 
         // Load saved settings
         SharedPreferences prefs = getSharedPreferences("AppSettings", MODE_PRIVATE);
-        switchDarkMode.setChecked(prefs.getBoolean("darkMode", false));
         switchDailyAffirmation.setChecked(prefs.getBoolean("dailyAffirmation", false));
 
-        btnSaveSettings.setOnClickListener(v -> {
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean("darkMode", switchDarkMode.isChecked());
-            editor.putBoolean("dailyAffirmation", switchDailyAffirmation.isChecked());
-            editor.apply();
+        btnSaveSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("dailyAffirmation", switchDailyAffirmation.isChecked());
+                editor.apply();
 
-            Toast.makeText(SettingsActivity.this, "Settings saved", Toast.LENGTH_SHORT).show();
-            finish();
+                Toast.makeText(SettingsActivity.this, "Settings saved", Toast.LENGTH_SHORT).show();
+                finish();
+            }
         });
     }
 }
