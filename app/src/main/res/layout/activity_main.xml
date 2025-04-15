@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Final Assignment Notes App"
+            android:text="@string/notes_app"
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_marginBottom="32dp"/>
@@ -27,7 +27,7 @@
             android:id="@+id/btnNewNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="New Note"
+            android:text="@string/new_note"
             android:layout_marginBottom="16dp"/>
 
         <!-- View Notes Button -->
@@ -35,7 +35,7 @@
             android:id="@+id/btnViewNotes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View Notes"
+            android:text="@string/view_notes"
             android:layout_marginBottom="16dp"/>
 
         <!-- Settings Button -->
@@ -43,7 +43,7 @@
             android:id="@+id/btnSettings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:text="@string/settings"
             android:layout_marginBottom="16dp"/>
 
         <!-- About Button -->

@@ -10,12 +10,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -58,37 +55,19 @@ public class ViewNotesActivity extends AppCompatActivity {
         loadNotes();
 
         // Set click listener for note items
-        lvNotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                viewNote(position);
-            }
-        });
+        lvNotes.setOnItemClickListener((parent, view, position, id) -> viewNote(position));
 
         // Set long click listener for deletion
-        lvNotes.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                deleteNote(position);
-                return true;
-            }
+        lvNotes.setOnItemLongClickListener((parent, view, position, id) -> {
+            deleteNote(position);
+            return true;
         });
 
         // Refresh button
-        btnRefresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadNotes();
-            }
-        });
+        btnRefresh.setOnClickListener(v -> loadNotes());
 
         // Back button
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        btnBack.setOnClickListener(v -> finish());
     }
 
     private void loadNotes() {
@@ -102,12 +81,7 @@ public class ViewNotesActivity extends AppCompatActivity {
             // Sort files by timestamp (newest first)
             ArrayList<File> fileList = new ArrayList<>();
             Collections.addAll(fileList, files);
-            Collections.sort(fileList, new Comparator<File>() {
-                @Override
-                public int compare(File f1, File f2) {
-                    return Long.compare(f2.lastModified(), f1.lastModified());
-                }
-            });
+            Collections.sort(fileList, (f1, f2) -> Long.compare(f2.lastModified(), f1.lastModified()));
 
             for (File file : fileList) {
                 try {
@@ -156,7 +130,6 @@ public class ViewNotesActivity extends AppCompatActivity {
 
             JSONObject noteJson = new JSONObject(sb.toString());
 
-            // Open note in NewNoteActivity for viewing/editing
             Intent intent = new Intent(this, NewNoteActivity.class);
             intent.putExtra("filename", filename);
             intent.putExtra("title", noteJson.getString("title"));
@@ -174,7 +147,7 @@ public class ViewNotesActivity extends AppCompatActivity {
         File file = new File(getFilesDir(), filename);
         if (file.delete()) {
             Toast.makeText(this, "Note deleted", Toast.LENGTH_SHORT).show();
-            loadNotes(); // Refresh the list
+            loadNotes();
         } else {
             Toast.makeText(this, "Error deleting note", Toast.LENGTH_SHORT).show();
         }
@@ -183,6 +156,6 @@ public class ViewNotesActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        loadNotes(); // Refresh when returning from other activities
+        loadNotes();
     }
 }

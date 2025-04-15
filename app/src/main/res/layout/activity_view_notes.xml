@@ -5,35 +5,26 @@
     android:orientation="vertical"
     android:padding="8dp">
 
-    <!-- Header with title and buttons -->
+    <!-- Header with buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_vertical"
         android:paddingBottom="8dp">
 
         <Button
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back"
-            android:layout_marginEnd="8dp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Your Notes"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:text="@string/back1"/>
 
         <Button
             android:id="@+id/btnRefresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Refresh"/>
+            android:text="@string/refresh"
+            android:layout_marginStart="8dp"/>
+
     </LinearLayout>
 
     <!-- List of notes -->
@@ -51,6 +42,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="No notes found. Create your first note!"
+        android:text="@string/no_notes_found_create_your_first_note"
         android:visibility="gone"/>
 </LinearLayout>

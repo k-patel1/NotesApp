@@ -16,26 +16,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Final Assignment Notes App"
+            android:text="@string/notes_app1"
             android:textSize="24sp"
             android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Version 1.0"
+            android:text="@string/created_by_kirtan_patel"
             android:layout_marginTop="16dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Created for Android Development Course"
+            android:text="@string/created_for_android_development_course"
             android:layout_marginTop="32dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="© 2023"
+            android:text="@string/_2025"
             android:layout_marginTop="32dp"/>
     </LinearLayout>
 
@@ -44,6 +44,6 @@
         android:id="@+id/btnBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Back"
+        android:text="@string/back"
         android:layout_marginTop="16dp"/>
 </LinearLayout>

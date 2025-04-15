@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="@string/settings1"
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -18,13 +18,13 @@
         android:id="@+id/switchDailyAffirmation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enable Daily Affirmation"/>
+        android:text="@string/enable_daily_affirmation"/>
 
     <Button
         android:id="@+id/btnSaveSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save Settings"
+        android:text="@string/save_settings"
         android:layout_marginTop="32dp"/>
 
 </LinearLayout>

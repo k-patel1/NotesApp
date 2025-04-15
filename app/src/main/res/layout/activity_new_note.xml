@@ -9,7 +9,7 @@
         android:id="@+id/etNoteTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Note Title"
+        android:hint="@string/note_title"
         android:inputType="textCapSentences"
         android:textSize="18sp"/>
 
@@ -19,7 +19,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="top"
-        android:hint="Write your note here..."
+        android:hint="@string/write_your_note_here"
         android:inputType="textMultiLine"
         android:minLines="10"/>
 
@@ -34,7 +34,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cancel"
+            android:text="@string/cancel"
             android:layout_marginEnd="8dp"/>
 
         <Button
@@ -42,7 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Save Note"/>
+            android:text="@string/save_note"/>
     </LinearLayout>
 
 </LinearLayout>
