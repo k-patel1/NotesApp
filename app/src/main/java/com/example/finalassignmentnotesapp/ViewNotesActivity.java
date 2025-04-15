@@ -38,10 +38,13 @@ public class ViewNotesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_notes);
 
+        // Initialize views
         lvNotes = findViewById(R.id.lvNotes);
         tvEmptyState = findViewById(R.id.tvEmptyState);
         Button btnRefresh = findViewById(R.id.btnRefresh);
+        Button btnBack = findViewById(R.id.btnBack);
 
+        // Initialize lists and adapter
         notesList = new ArrayList<>();
         noteFiles = new ArrayList<>();
         adapter = new ArrayAdapter<>(
@@ -51,6 +54,7 @@ public class ViewNotesActivity extends AppCompatActivity {
         );
         lvNotes.setAdapter(adapter);
 
+        // Load notes on startup
         loadNotes();
 
         // Set click listener for note items
@@ -75,6 +79,14 @@ public class ViewNotesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadNotes();
+            }
+        });
+
+        // Back button
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }

@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="8dp">
 
-    <!-- Header with title and refresh button -->
+    <!-- Header with title and buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,13 +13,21 @@
         android:gravity="center_vertical"
         android:paddingBottom="8dp">
 
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:layout_marginEnd="8dp"/>
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Your Notes"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:gravity="center"/>
 
         <Button
             android:id="@+id/btnRefresh"
